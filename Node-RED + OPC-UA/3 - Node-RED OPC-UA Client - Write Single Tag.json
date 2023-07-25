@@ -1,15 +1,15 @@
 [
     {
-        "id": "16c7d364.80292d",
+        "id": "77f0b662a7473241",
         "type": "tab",
         "label": "Prosys",
         "disabled": false,
         "info": ""
     },
     {
-        "id": "2c67d927.793f66",
+        "id": "599f4ad72278267e",
         "type": "OpcUa-Client",
-        "z": "16c7d364.80292d",
+        "z": "77f0b662a7473241",
         "endpoint": "8dedbe4.828f54",
         "action": "write",
         "deadbandtype": "a",
@@ -33,9 +33,9 @@
         ]
     },
     {
-        "id": "553c3b14.962354",
+        "id": "d55f2b7ec00af6bc",
         "type": "inject",
-        "z": "16c7d364.80292d",
+        "z": "77f0b662a7473241",
         "name": "Write Value 45",
         "props": [
             {
@@ -57,14 +57,14 @@
         "y": 100,
         "wires": [
             [
-                "2c67d927.793f66"
+                "599f4ad72278267e"
             ]
         ]
     },
     {
-        "id": "ebd0524.9ea13b",
+        "id": "c47c1a91f4dc9ddf",
         "type": "inject",
-        "z": "16c7d364.80292d",
+        "z": "77f0b662a7473241",
         "name": "Write Value 55",
         "props": [
             {
@@ -86,18 +86,18 @@
         "y": 140,
         "wires": [
             [
-                "2c67d927.793f66"
+                "599f4ad72278267e"
             ]
         ]
     },
     {
-        "id": "29d25fd5.70d85",
+        "id": "9c87de4725195187",
         "type": "ui_numeric",
-        "z": "16c7d364.80292d",
+        "z": "77f0b662a7473241",
         "name": "",
-        "label": "numeric",
+        "label": "Var_1",
         "tooltip": "",
-        "group": "fa421d3a.5d6ba",
+        "group": "4f17ecdb21849041",
         "order": 6,
         "width": 0,
         "height": 0,
@@ -110,11 +110,11 @@
         "max": "100",
         "step": 1,
         "className": "",
-        "x": 200,
+        "x": 190,
         "y": 180,
         "wires": [
             [
-                "2c67d927.793f66"
+                "599f4ad72278267e"
             ]
         ]
     },
@@ -124,14 +124,14 @@
         "endpoint": "opc.tcp://DESKTOP-1D1P1PV:53530/localhost",
         "secpol": "None",
         "secmode": "None",
-        "none": true,
+        "none": false,
         "login": false,
         "usercert": false,
         "usercertificate": "",
         "userprivatekey": ""
     },
     {
-        "id": "fa421d3a.5d6ba",
+        "id": "4f17ecdb21849041",
         "type": "ui_group",
         "name": "Prosys OPC UA",
         "tab": "6e9b9ef9.94e89",
