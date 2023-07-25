@@ -1,4 +1,4 @@
-Nodes Used in this FLOW:
+Nodes we have used in Examples:
 - node-red-contrib-opcua
 
   `npm install node-red-contrib-opcua` 
