@@ -1,6 +1,6 @@
 [
     {
-        "id": "ecaeee16eeb155c4",
+        "id": "44ecc6f0f768290f",
         "type": "tab",
         "label": "Flow 1",
         "disabled": false,
@@ -8,10 +8,10 @@
         "env": []
     },
     {
-        "id": "f0df801866ec7b07",
+        "id": "3b2cfd2fefb405a7",
         "type": "modbus-getter",
-        "z": "ecaeee16eeb155c4",
-        "name": "SHT20",
+        "z": "44ecc6f0f768290f",
+        "name": "SHT20 ",
         "showStatusActivities": false,
         "showErrors": false,
         "showWarnings": true,
@@ -20,7 +20,7 @@
         "dataType": "InputRegister",
         "adr": "1",
         "quantity": "2",
-        "server": "b492279ef538b742",
+        "server": "dd04c2c85a44530f",
         "useIOFile": false,
         "ioFile": "",
         "useIOForPayload": false,
@@ -28,20 +28,20 @@
         "keepMsgProperties": false,
         "delayOnStart": false,
         "startDelayTime": "",
-        "x": 300,
-        "y": 160,
+        "x": 340,
+        "y": 200,
         "wires": [
             [
-                "b138c97d2aca2f19",
-                "7263bc2aeaff6d48"
+                "4e5faef3ca58a6a2",
+                "347991e029285093"
             ],
             []
         ]
     },
     {
-        "id": "7bab5dae89ed3656",
+        "id": "96e7bcad1364af02",
         "type": "inject",
-        "z": "ecaeee16eeb155c4",
+        "z": "44ecc6f0f768290f",
         "name": "",
         "props": [
             {
@@ -59,18 +59,18 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 150,
-        "y": 160,
+        "x": 190,
+        "y": 200,
         "wires": [
             [
-                "f0df801866ec7b07"
+                "3b2cfd2fefb405a7"
             ]
         ]
     },
     {
-        "id": "b084c7250b929986",
+        "id": "9997c34f1c541ffd",
         "type": "debug",
-        "z": "ecaeee16eeb155c4",
+        "z": "44ecc6f0f768290f",
         "name": "debug 2",
         "active": true,
         "tosidebar": true,
@@ -79,14 +79,14 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 660,
-        "y": 100,
+        "x": 700,
+        "y": 140,
         "wires": []
     },
     {
-        "id": "b138c97d2aca2f19",
+        "id": "4e5faef3ca58a6a2",
         "type": "function",
-        "z": "ecaeee16eeb155c4",
+        "z": "44ecc6f0f768290f",
         "name": "Temperature",
         "func": "var newMsg = { payload: msg.payload[0] / 10.0};\nreturn newMsg;",
         "outputs": 1,
@@ -94,22 +94,22 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 470,
-        "y": 100,
+        "x": 510,
+        "y": 140,
         "wires": [
             [
-                "b084c7250b929986",
-                "7c8591353c701b2a",
-                "1e8ed9015d8d5ea5"
+                "9997c34f1c541ffd",
+                "7e2430688a932000",
+                "57e987174160464d"
             ]
         ]
     },
     {
-        "id": "7c8591353c701b2a",
+        "id": "7e2430688a932000",
         "type": "ui_gauge",
-        "z": "ecaeee16eeb155c4",
+        "z": "44ecc6f0f768290f",
         "name": "",
-        "group": "427ca1c570f39590",
+        "group": "d084a8723084ddc8",
         "order": 0,
         "width": "4",
         "height": "4",
@@ -128,14 +128,14 @@
         "seg2": "",
         "diff": false,
         "className": "",
-        "x": 670,
-        "y": 60,
+        "x": 710,
+        "y": 100,
         "wires": []
     },
     {
-        "id": "7263bc2aeaff6d48",
+        "id": "347991e029285093",
         "type": "function",
-        "z": "ecaeee16eeb155c4",
+        "z": "44ecc6f0f768290f",
         "name": "Relative Humidity",
         "func": "var newMsg = { payload: msg.payload[1] / 10.0};\nreturn newMsg;",
         "outputs": 1,
@@ -143,20 +143,20 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 490,
-        "y": 200,
+        "x": 530,
+        "y": 240,
         "wires": [
             [
-                "b3a20fd2b9b4d6ef",
-                "4d74ec5daa6a6618",
-                "2f4fa1d1f3fe50c5"
+                "fc141634b6d4867c",
+                "ca766b29641fb346",
+                "be8e7ae88d3aba2d"
             ]
         ]
     },
     {
-        "id": "4d74ec5daa6a6618",
+        "id": "ca766b29641fb346",
         "type": "debug",
-        "z": "ecaeee16eeb155c4",
+        "z": "44ecc6f0f768290f",
         "name": "debug 3",
         "active": true,
         "tosidebar": true,
@@ -165,16 +165,16 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 660,
-        "y": 200,
+        "x": 700,
+        "y": 240,
         "wires": []
     },
     {
-        "id": "b3a20fd2b9b4d6ef",
+        "id": "fc141634b6d4867c",
         "type": "ui_gauge",
-        "z": "ecaeee16eeb155c4",
+        "z": "44ecc6f0f768290f",
         "name": "",
-        "group": "b8ac25197ea28000",
+        "group": "f2134c875a19d3a6",
         "order": 1,
         "width": "4",
         "height": "4",
@@ -193,16 +193,16 @@
         "seg2": "",
         "diff": false,
         "className": "",
-        "x": 660,
-        "y": 160,
+        "x": 700,
+        "y": 200,
         "wires": []
     },
     {
-        "id": "2f4fa1d1f3fe50c5",
+        "id": "be8e7ae88d3aba2d",
         "type": "ui_chart",
-        "z": "ecaeee16eeb155c4",
+        "z": "44ecc6f0f768290f",
         "name": "",
-        "group": "b8ac25197ea28000",
+        "group": "f2134c875a19d3a6",
         "order": 2,
         "width": "6",
         "height": "4",
@@ -235,18 +235,18 @@
         "outputs": 1,
         "useDifferentColor": false,
         "className": "",
-        "x": 660,
-        "y": 240,
+        "x": 700,
+        "y": 280,
         "wires": [
             []
         ]
     },
     {
-        "id": "1e8ed9015d8d5ea5",
+        "id": "57e987174160464d",
         "type": "ui_chart",
-        "z": "ecaeee16eeb155c4",
+        "z": "44ecc6f0f768290f",
         "name": "",
-        "group": "427ca1c570f39590",
+        "group": "d084a8723084ddc8",
         "order": 2,
         "width": "6",
         "height": "4",
@@ -279,16 +279,16 @@
         "outputs": 1,
         "useDifferentColor": false,
         "className": "",
-        "x": 670,
-        "y": 20,
+        "x": 710,
+        "y": 60,
         "wires": [
             []
         ]
     },
     {
-        "id": "b492279ef538b742",
+        "id": "dd04c2c85a44530f",
         "type": "modbus-client",
-        "name": "Modbus Client",
+        "name": "SHT20 Modbus Server",
         "clienttype": "serial",
         "bufferCommands": true,
         "stateLogEnabled": false,
@@ -315,10 +315,10 @@
         "showLogs": true
     },
     {
-        "id": "427ca1c570f39590",
+        "id": "d084a8723084ddc8",
         "type": "ui_group",
         "name": "SHT20-Temperature",
-        "tab": "4e826dda2bc2b642",
+        "tab": "7a786455f9da0917",
         "order": 2,
         "disp": true,
         "width": "12",
@@ -326,10 +326,10 @@
         "className": ""
     },
     {
-        "id": "b8ac25197ea28000",
+        "id": "f2134c875a19d3a6",
         "type": "ui_group",
         "name": "SHT20-Humidity",
-        "tab": "4e826dda2bc2b642",
+        "tab": "7a786455f9da0917",
         "order": 1,
         "disp": true,
         "width": "12",
@@ -337,7 +337,7 @@
         "className": ""
     },
     {
-        "id": "4e826dda2bc2b642",
+        "id": "7a786455f9da0917",
         "type": "ui_tab",
         "name": "Home",
         "icon": "dashboard",
