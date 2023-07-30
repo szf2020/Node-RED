@@ -99,7 +99,8 @@
         "wires": [
             [
                 "b084c7250b929986",
-                "7c8591353c701b2a"
+                "7c8591353c701b2a",
+                "1e8ed9015d8d5ea5"
             ]
         ]
     },
@@ -108,10 +109,10 @@
         "type": "ui_gauge",
         "z": "ecaeee16eeb155c4",
         "name": "",
-        "group": "b8ac25197ea28000",
+        "group": "427ca1c570f39590",
         "order": 0,
-        "width": 0,
-        "height": 0,
+        "width": "4",
+        "height": "4",
         "gtype": "gage",
         "title": "Temperature",
         "label": " °C",
@@ -147,7 +148,8 @@
         "wires": [
             [
                 "b3a20fd2b9b4d6ef",
-                "4d74ec5daa6a6618"
+                "4d74ec5daa6a6618",
+                "2f4fa1d1f3fe50c5"
             ]
         ]
     },
@@ -174,8 +176,8 @@
         "name": "",
         "group": "b8ac25197ea28000",
         "order": 1,
-        "width": 0,
-        "height": 0,
+        "width": "4",
+        "height": "4",
         "gtype": "gage",
         "title": "Humidity",
         "label": "%RH",
@@ -194,6 +196,94 @@
         "x": 660,
         "y": 160,
         "wires": []
+    },
+    {
+        "id": "2f4fa1d1f3fe50c5",
+        "type": "ui_chart",
+        "z": "ecaeee16eeb155c4",
+        "name": "",
+        "group": "b8ac25197ea28000",
+        "order": 2,
+        "width": "6",
+        "height": "4",
+        "label": "Humidity",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "60",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 660,
+        "y": 240,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "1e8ed9015d8d5ea5",
+        "type": "ui_chart",
+        "z": "ecaeee16eeb155c4",
+        "name": "",
+        "group": "427ca1c570f39590",
+        "order": 2,
+        "width": "6",
+        "height": "4",
+        "label": "Temperature",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "60",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 670,
+        "y": 20,
+        "wires": [
+            []
+        ]
     },
     {
         "id": "b492279ef538b742",
@@ -225,13 +315,24 @@
         "showLogs": true
     },
     {
+        "id": "427ca1c570f39590",
+        "type": "ui_group",
+        "name": "SHT20-Temperature",
+        "tab": "4e826dda2bc2b642",
+        "order": 2,
+        "disp": true,
+        "width": "12",
+        "collapse": false,
+        "className": ""
+    },
+    {
         "id": "b8ac25197ea28000",
         "type": "ui_group",
-        "name": "SHT20",
+        "name": "SHT20-Humidity",
         "tab": "4e826dda2bc2b642",
         "order": 1,
         "disp": true,
-        "width": "6",
+        "width": "12",
         "collapse": false,
         "className": ""
     },
