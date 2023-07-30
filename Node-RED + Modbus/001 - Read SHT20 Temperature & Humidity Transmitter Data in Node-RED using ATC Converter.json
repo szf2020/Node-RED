@@ -1,6 +1,6 @@
 [
     {
-        "id": "d591d94dbd4bb694",
+        "id": "ecaeee16eeb155c4",
         "type": "tab",
         "label": "Flow 1",
         "disabled": false,
@@ -8,9 +8,9 @@
         "env": []
     },
     {
-        "id": "d9d3b64b7acbb400",
+        "id": "f0df801866ec7b07",
         "type": "modbus-getter",
-        "z": "d591d94dbd4bb694",
+        "z": "ecaeee16eeb155c4",
         "name": "SHT20",
         "showStatusActivities": false,
         "showErrors": false,
@@ -20,7 +20,7 @@
         "dataType": "InputRegister",
         "adr": "1",
         "quantity": "2",
-        "server": "9ec28257ee6f4eb0",
+        "server": "b492279ef538b742",
         "useIOFile": false,
         "ioFile": "",
         "useIOForPayload": false,
@@ -28,20 +28,20 @@
         "keepMsgProperties": false,
         "delayOnStart": false,
         "startDelayTime": "",
-        "x": 540,
-        "y": 220,
+        "x": 300,
+        "y": 160,
         "wires": [
             [
-                "a16cffe2f72c43aa",
-                "efc66c5bad61f7a1"
+                "b138c97d2aca2f19",
+                "7263bc2aeaff6d48"
             ],
             []
         ]
     },
     {
-        "id": "aaf5e53af3bb2f10",
+        "id": "7bab5dae89ed3656",
         "type": "inject",
-        "z": "d591d94dbd4bb694",
+        "z": "ecaeee16eeb155c4",
         "name": "",
         "props": [
             {
@@ -52,25 +52,25 @@
                 "vt": "str"
             }
         ],
-        "repeat": "4",
+        "repeat": "1",
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 390,
-        "y": 220,
+        "x": 150,
+        "y": 160,
         "wires": [
             [
-                "d9d3b64b7acbb400"
+                "f0df801866ec7b07"
             ]
         ]
     },
     {
-        "id": "c1fb9296f19326ff",
+        "id": "b084c7250b929986",
         "type": "debug",
-        "z": "d591d94dbd4bb694",
+        "z": "ecaeee16eeb155c4",
         "name": "debug 2",
         "active": true,
         "tosidebar": true,
@@ -79,14 +79,14 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 900,
-        "y": 160,
+        "x": 660,
+        "y": 100,
         "wires": []
     },
     {
-        "id": "a16cffe2f72c43aa",
+        "id": "b138c97d2aca2f19",
         "type": "function",
-        "z": "d591d94dbd4bb694",
+        "z": "ecaeee16eeb155c4",
         "name": "Temperature",
         "func": "var newMsg = { payload: msg.payload[0] / 10.0};\nreturn newMsg;",
         "outputs": 1,
@@ -94,21 +94,21 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 710,
-        "y": 160,
+        "x": 470,
+        "y": 100,
         "wires": [
             [
-                "c1fb9296f19326ff",
-                "90d8f2c91dc1ba4c"
+                "b084c7250b929986",
+                "7c8591353c701b2a"
             ]
         ]
     },
     {
-        "id": "90d8f2c91dc1ba4c",
+        "id": "7c8591353c701b2a",
         "type": "ui_gauge",
-        "z": "d591d94dbd4bb694",
+        "z": "ecaeee16eeb155c4",
         "name": "",
-        "group": "1e7477a1e3424261",
+        "group": "b8ac25197ea28000",
         "order": 0,
         "width": 0,
         "height": 0,
@@ -127,14 +127,14 @@
         "seg2": "",
         "diff": false,
         "className": "",
-        "x": 910,
-        "y": 120,
+        "x": 670,
+        "y": 60,
         "wires": []
     },
     {
-        "id": "efc66c5bad61f7a1",
+        "id": "7263bc2aeaff6d48",
         "type": "function",
-        "z": "d591d94dbd4bb694",
+        "z": "ecaeee16eeb155c4",
         "name": "Relative Humidity",
         "func": "var newMsg = { payload: msg.payload[1] / 10.0};\nreturn newMsg;",
         "outputs": 1,
@@ -142,19 +142,19 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 730,
-        "y": 260,
+        "x": 490,
+        "y": 200,
         "wires": [
             [
-                "1264f3f04fbc6932",
-                "06d177a120163420"
+                "b3a20fd2b9b4d6ef",
+                "4d74ec5daa6a6618"
             ]
         ]
     },
     {
-        "id": "06d177a120163420",
+        "id": "4d74ec5daa6a6618",
         "type": "debug",
-        "z": "d591d94dbd4bb694",
+        "z": "ecaeee16eeb155c4",
         "name": "debug 3",
         "active": true,
         "tosidebar": true,
@@ -163,16 +163,16 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 900,
-        "y": 260,
+        "x": 660,
+        "y": 200,
         "wires": []
     },
     {
-        "id": "1264f3f04fbc6932",
+        "id": "b3a20fd2b9b4d6ef",
         "type": "ui_gauge",
-        "z": "d591d94dbd4bb694",
+        "z": "ecaeee16eeb155c4",
         "name": "",
-        "group": "1e7477a1e3424261",
+        "group": "b8ac25197ea28000",
         "order": 1,
         "width": 0,
         "height": 0,
@@ -191,12 +191,12 @@
         "seg2": "",
         "diff": false,
         "className": "",
-        "x": 900,
-        "y": 220,
+        "x": 660,
+        "y": 160,
         "wires": []
     },
     {
-        "id": "9ec28257ee6f4eb0",
+        "id": "b492279ef538b742",
         "type": "modbus-client",
         "name": "Modbus Client",
         "clienttype": "serial",
@@ -225,10 +225,10 @@
         "showLogs": true
     },
     {
-        "id": "1e7477a1e3424261",
+        "id": "b8ac25197ea28000",
         "type": "ui_group",
         "name": "SHT20",
-        "tab": "6e9b9ef9.94e89",
+        "tab": "4e826dda2bc2b642",
         "order": 1,
         "disp": true,
         "width": "6",
@@ -236,7 +236,7 @@
         "className": ""
     },
     {
-        "id": "6e9b9ef9.94e89",
+        "id": "4e826dda2bc2b642",
         "type": "ui_tab",
         "name": "Home",
         "icon": "dashboard",
