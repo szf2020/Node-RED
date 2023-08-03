@@ -22,7 +22,7 @@
         "name": "",
         "showStatusActivities": false,
         "showErrors": true,
-        "allowAnonymous": false,
+        "allowAnonymous": true,
         "individualCerts": false,
         "isAuditing": false,
         "serverDiscovery": true,
