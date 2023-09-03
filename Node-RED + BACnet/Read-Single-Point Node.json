@@ -1,0 +1,88 @@
+[
+    {
+        "id": "a77f6cf6d7856aee",
+        "type": "tab",
+        "label": "Read Single Point",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "3ed9cb3c68c88c50",
+        "type": "read-single-point",
+        "z": "a77f6cf6d7856aee",
+        "name": "",
+        "x": 490,
+        "y": 60,
+        "wires": [
+            [
+                "56dcc0c93d7edcc8"
+            ]
+        ]
+    },
+    {
+        "id": "8b01e8719e4d6d6b",
+        "type": "function",
+        "z": "a77f6cf6d7856aee",
+        "name": "Inject Parameters",
+        "func": "// msg.communicationPort = 47811;\n// msg.interface = '0.0.0.0';\n// msg.broadcastAddress = '255.255.255.255';\n// msg.apduTimeout = 4000;\n// msg.reuseAddr = true;\n\n \n// msg.transportClosedDuration = 9000;\n\n\n// msg.inputType = 2;\n// msg.bacnetId = 103;\n// msg.address = \"192.168.10.52\";\n\nmsg.inputType = 0;\nmsg.bacnetId = 1;\nmsg.address = \"192.168.1.6:61531\";\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 290,
+        "y": 60,
+        "wires": [
+            [
+                "3ed9cb3c68c88c50"
+            ]
+        ]
+    },
+    {
+        "id": "56dcc0c93d7edcc8",
+        "type": "debug",
+        "z": "a77f6cf6d7856aee",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 670,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "dfdf9cfae6db316a",
+        "type": "inject",
+        "z": "a77f6cf6d7856aee",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 120,
+        "y": 60,
+        "wires": [
+            [
+                "8b01e8719e4d6d6b"
+            ]
+        ]
+    }
+]
