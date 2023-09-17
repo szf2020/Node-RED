@@ -12,14 +12,14 @@
         "type": "function",
         "z": "c2f97f831b10833d",
         "name": "Inject Parameters",
-        "func": "// var randNum = Math.floor(Math.random() * 5100);\n// msg.communicationPort = 47809 + randNum;\n// msg.interface = '0.0.0.0';\n// msg.broadcastAddress = '255.255.255.255';\n// msg.apduTimeout = 3000;\n// msg.reuseAddr = true;\n// msg.transportClosedDuration = 90000;\n//msg.getAllPropertiesManually = \"true\";\n\n// msg.deviceId = 2051;\n// BACnet Device ID\nmsg.deviceId = 3588107; \n// BACnet Device IP:Port\n// If you use it without port then there is a chance that it will not work\nmsg.address = \"192.168.1.6:61531\"; \nmsg.apduTimeout = 20000;\n\nreturn msg;",
+        "func": "// var randNum = Math.floor(Math.random() * 5100);\n// msg.communicationPort = 47809 + randNum;\n// msg.interface = '0.0.0.0';\n// msg.broadcastAddress = '255.255.255.255';\n// msg.apduTimeout = 3000;\n// msg.reuseAddr = true;\n// msg.transportClosedDuration = 90000;\n//msg.getAllPropertiesManually = \"true\";\n\n// msg.deviceId = 2051;\n// BACnet Device ID\nmsg.deviceId = 3588107; \n// BACnet Device IP:Port\n// If you use it without port then there is a chance that it will not work\nmsg.address = \"192.168.1.8:55559\"; \nmsg.apduTimeout = 20000;\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 270,
-        "y": 60,
+        "x": 150,
+        "y": 140,
         "wires": [
             [
                 "ede5e2d97a9ff630"
@@ -47,8 +47,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 100,
-        "y": 60,
+        "x": 180,
+        "y": 80,
         "wires": [
             [
                 "4fb6bf9552d1c542"
@@ -60,8 +60,8 @@
         "type": "read-single-device",
         "z": "c2f97f831b10833d",
         "name": "",
-        "x": 470,
-        "y": 60,
+        "x": 150,
+        "y": 200,
         "wires": [
             [
                 "177ff63bf3091b0f"
@@ -81,8 +81,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 650,
-        "y": 60,
+        "x": 390,
+        "y": 200,
         "wires": []
     }
 ]
