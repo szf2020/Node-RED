@@ -20,8 +20,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 630,
-        "y": 80,
+        "x": 410,
+        "y": 200,
         "wires": []
     },
     {
@@ -29,8 +29,8 @@
         "type": "read-all-devices",
         "z": "8f163798293036b1",
         "name": "",
-        "x": 460,
-        "y": 80,
+        "x": 160,
+        "y": 200,
         "wires": [
             [
                 "3eecc0c9baf5b834"
@@ -48,8 +48,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 270,
-        "y": 80,
+        "x": 150,
+        "y": 140,
         "wires": [
             [
                 "e942e51ca4b4090f"
@@ -77,7 +77,7 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 100,
+        "x": 180,
         "y": 80,
         "wires": [
             [
