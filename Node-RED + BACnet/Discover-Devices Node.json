@@ -2,7 +2,7 @@
     {
         "id": "a9f34d360d77dccf",
         "type": "tab",
-        "label": "Flow 1",
+        "label": "discover-devices",
         "disabled": false,
         "info": "",
         "env": []
@@ -28,7 +28,7 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 140,
+        "x": 200,
         "y": 180,
         "wires": [
             [
@@ -47,8 +47,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 310,
-        "y": 180,
+        "x": 170,
+        "y": 220,
         "wires": [
             [
                 "411aed243f057296"
@@ -60,8 +60,8 @@
         "type": "discover-devices",
         "z": "a9f34d360d77dccf",
         "name": "",
-        "x": 510,
-        "y": 180,
+        "x": 170,
+        "y": 260,
         "wires": [
             [
                 "74bf69659e1974a1"
@@ -81,8 +81,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 690,
-        "y": 180,
+        "x": 390,
+        "y": 260,
         "wires": []
     }
 ]
