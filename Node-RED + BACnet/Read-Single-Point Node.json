@@ -12,11 +12,13 @@
         "type": "read-single-point",
         "z": "a77f6cf6d7856aee",
         "name": "",
-        "x": 490,
-        "y": 60,
+        "x": 150,
+        "y": 180,
         "wires": [
             [
-                "56dcc0c93d7edcc8"
+                "56dcc0c93d7edcc8",
+                "2fcf5baccc72fb1e",
+                "fbc4217db8ad67dc"
             ]
         ]
     },
@@ -25,14 +27,14 @@
         "type": "function",
         "z": "a77f6cf6d7856aee",
         "name": "Inject Parameters",
-        "func": "// msg.communicationPort = 47811;\n// msg.interface = '0.0.0.0';\n// msg.broadcastAddress = '255.255.255.255';\n// msg.apduTimeout = 4000;\n// msg.reuseAddr = true;\n\n \n// msg.transportClosedDuration = 9000;\n\n\n// msg.inputType = 2;\n// msg.bacnetId = 103;\n// msg.address = \"192.168.10.52\";\n\nmsg.inputType = 0;\nmsg.bacnetId = 1;\nmsg.address = \"192.168.1.6:61531\";\n\nreturn msg;",
+        "func": "// msg.communicationPort = 47811;\n// msg.interface = '0.0.0.0';\n// msg.broadcastAddress = '255.255.255.255';\n// msg.apduTimeout = 4000;\n// msg.reuseAddr = true;\n\n \n// msg.transportClosedDuration = 9000;\n\n\n// msg.inputType = 2;\n// msg.bacnetId = 103;\n// msg.address = \"192.168.10.52\";\n\nmsg.inputType = 0;\nmsg.bacnetId = 1;\nmsg.address = \"192.168.1.8:55559\";\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 290,
-        "y": 60,
+        "x": 150,
+        "y": 120,
         "wires": [
             [
                 "3ed9cb3c68c88c50"
@@ -48,12 +50,12 @@
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "payload",
+        "complete": "payload.PRESENT_VALUE",
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 670,
-        "y": 60,
+        "x": 500,
+        "y": 160,
         "wires": []
     },
     {
@@ -77,12 +79,46 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 120,
+        "x": 180,
         "y": 60,
         "wires": [
             [
                 "8b01e8719e4d6d6b"
             ]
         ]
+    },
+    {
+        "id": "2fcf5baccc72fb1e",
+        "type": "debug",
+        "z": "a77f6cf6d7856aee",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload.OBJECT_NAME",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 490,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "fbc4217db8ad67dc",
+        "type": "debug",
+        "z": "a77f6cf6d7856aee",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 430,
+        "y": 120,
+        "wires": []
     }
 ]
