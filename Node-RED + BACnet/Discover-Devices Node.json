@@ -72,7 +72,7 @@
         "id": "74bf69659e1974a1",
         "type": "debug",
         "z": "a9f34d360d77dccf",
-        "name": "debug 20",
+        "name": "",
         "active": true,
         "tosidebar": true,
         "console": false,
@@ -81,7 +81,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 680,
+        "x": 690,
         "y": 180,
         "wires": []
     }
