@@ -1,0 +1,312 @@
+[
+    {
+        "id": "107f242d999a935f",
+        "type": "tab",
+        "label": "Room Simulator BACnet Device Dashboard",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "1aa268f1a0438dce",
+        "type": "debug",
+        "z": "107f242d999a935f",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload.values[0].value[0].value",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 410,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "cfa436b22edec71a",
+        "type": "change-of-value",
+        "z": "107f242d999a935f",
+        "name": "",
+        "address": "192.168.169.189:49802",
+        "inputType": "0",
+        "bacnetId": "0",
+        "COVtimeout": "120000",
+        "x": 140,
+        "y": 80,
+        "wires": [
+            [
+                "1aa268f1a0438dce",
+                "913da56cc16816c5"
+            ]
+        ]
+    },
+    {
+        "id": "59a62eeede85b61d",
+        "type": "ui_gauge",
+        "z": "107f242d999a935f",
+        "name": "",
+        "group": "71b14cb435a8fee7",
+        "order": 0,
+        "width": "5",
+        "height": "5",
+        "gtype": "gage",
+        "title": "Indoor Temperature",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 550,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "913da56cc16816c5",
+        "type": "change",
+        "z": "107f242d999a935f",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.values[0].value[0].value",
+                "tot": "msg",
+                "dc": true
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 350,
+        "y": 80,
+        "wires": [
+            [
+                "59a62eeede85b61d",
+                "f805d734010b76e3"
+            ]
+        ]
+    },
+    {
+        "id": "ef9b1911779c85ec",
+        "type": "ui_gauge",
+        "z": "107f242d999a935f",
+        "name": "",
+        "group": "71b14cb435a8fee7",
+        "order": 0,
+        "width": "5",
+        "height": "5",
+        "gtype": "gage",
+        "title": "Water Temperature",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 550,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "ee77bc11526f690a",
+        "type": "change",
+        "z": "107f242d999a935f",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.values[0].value[0].value",
+                "tot": "msg",
+                "dc": true
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 350,
+        "y": 180,
+        "wires": [
+            [
+                "ef9b1911779c85ec",
+                "19c681bb32fbcf67"
+            ]
+        ]
+    },
+    {
+        "id": "0d1b7dfbfbe7b89a",
+        "type": "change-of-value",
+        "z": "107f242d999a935f",
+        "name": "",
+        "address": "192.168.169.189:49802",
+        "inputType": "0",
+        "bacnetId": "1",
+        "COVtimeout": "120000",
+        "x": 140,
+        "y": 180,
+        "wires": [
+            [
+                "e9892c4d68145eb9",
+                "ee77bc11526f690a"
+            ]
+        ]
+    },
+    {
+        "id": "e9892c4d68145eb9",
+        "type": "debug",
+        "z": "107f242d999a935f",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload.values[0].value[0].value",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 410,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "f805d734010b76e3",
+        "type": "ui_chart",
+        "z": "107f242d999a935f",
+        "name": "",
+        "group": "2c6d5e42a7315927",
+        "order": 3,
+        "width": "9",
+        "height": "4",
+        "label": "Indoor Temperature",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": "5",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "60",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 750,
+        "y": 40,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "19c681bb32fbcf67",
+        "type": "ui_chart",
+        "z": "107f242d999a935f",
+        "name": "",
+        "group": "2c6d5e42a7315927",
+        "order": 2,
+        "width": "8",
+        "height": "4",
+        "label": "Water Temperature",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": "5",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "60",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 750,
+        "y": 140,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "71b14cb435a8fee7",
+        "type": "ui_group",
+        "name": "Default",
+        "tab": "99bb9f29753326a8",
+        "order": 1,
+        "disp": true,
+        "width": "12",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "2c6d5e42a7315927",
+        "type": "ui_group",
+        "name": "Trends",
+        "tab": "99bb9f29753326a8",
+        "order": 2,
+        "disp": true,
+        "width": "12",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "99bb9f29753326a8",
+        "type": "ui_tab",
+        "name": "Room Simulator",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
