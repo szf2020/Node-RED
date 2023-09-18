@@ -66,7 +66,7 @@
         "seg2": "",
         "diff": false,
         "className": "",
-        "x": 550,
+        "x": 750,
         "y": 80,
         "wires": []
     },
@@ -123,7 +123,7 @@
         "seg2": "",
         "diff": false,
         "className": "",
-        "x": 550,
+        "x": 750,
         "y": 180,
         "wires": []
     },
@@ -277,6 +277,123 @@
         "y": 140,
         "wires": [
             []
+        ]
+    },
+    {
+        "id": "5a152fae67f1532f",
+        "type": "function",
+        "z": "107f242d999a935f",
+        "name": "Inject Parameters",
+        "func": "// msg.communicationPort = 47811;\n// msg.interface = '0.0.0.0';\n// msg.broadcastAddress = '255.255.255.255';\n// msg.apduTimeout = 4000;\n// msg.reuseAddr = true;\n\n \n// msg.transportClosedDuration = 9000;\n\n\n// msg.inputType = 2;\n// msg.bacnetId = 103;\n// msg.address = \"192.168.10.52\";\n\nmsg.inputType = 0;\nmsg.bacnetId = 2;\nmsg.address = \"192.168.169.189:49802\";\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 310,
+        "y": 260,
+        "wires": [
+            [
+                "dc3c255a9a1604dc"
+            ]
+        ]
+    },
+    {
+        "id": "f5bffaf98a220c14",
+        "type": "inject",
+        "z": "107f242d999a935f",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "5",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 130,
+        "y": 260,
+        "wires": [
+            [
+                "5a152fae67f1532f"
+            ]
+        ]
+    },
+    {
+        "id": "dc3c255a9a1604dc",
+        "type": "read-single-point",
+        "z": "107f242d999a935f",
+        "name": "",
+        "x": 310,
+        "y": 300,
+        "wires": [
+            [
+                "88c3750b0f245230"
+            ]
+        ]
+    },
+    {
+        "id": "5eb1e7cb75fac36d",
+        "type": "ui_gauge",
+        "z": "107f242d999a935f",
+        "name": "",
+        "group": "71b14cb435a8fee7",
+        "order": 2,
+        "width": "5",
+        "height": "5",
+        "gtype": "gage",
+        "title": "Outdoor Temperature",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 720,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "88c3750b0f245230",
+        "type": "change",
+        "z": "107f242d999a935f",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.PRESENT_VALUE",
+                "tot": "msg",
+                "dc": true
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 510,
+        "y": 300,
+        "wires": [
+            [
+                "5eb1e7cb75fac36d"
+            ]
         ]
     },
     {
