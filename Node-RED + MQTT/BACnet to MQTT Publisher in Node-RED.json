@@ -2,7 +2,7 @@
     {
         "id": "a9f34d360d77dccf",
         "type": "tab",
-        "label": "discover-devices",
+        "label": "BACnet to MQTT Publisher",
         "disabled": false,
         "info": "",
         "env": []
@@ -94,7 +94,7 @@
         "inputType": "0",
         "bacnetId": "0",
         "COVtimeout": "120000",
-        "x": 200,
+        "x": 160,
         "y": 180,
         "wires": [
             [
@@ -128,8 +128,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 180,
-        "y": 220,
+        "x": 400,
+        "y": 180,
         "wires": [
             [
                 "f0912af0fd6b30d1"
@@ -150,8 +150,8 @@
         "correl": "",
         "expiry": "",
         "broker": "7239fad3d04c7dfb",
-        "x": 410,
-        "y": 320,
+        "x": 650,
+        "y": 240,
         "wires": []
     },
     {
@@ -163,8 +163,8 @@
         "inputType": "0",
         "bacnetId": "1",
         "COVtimeout": "120000",
-        "x": 200,
-        "y": 280,
+        "x": 160,
+        "y": 240,
         "wires": [
             [
                 "0946cbde25d9b141"
@@ -197,8 +197,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 160,
-        "y": 320,
+        "x": 380,
+        "y": 240,
         "wires": [
             [
                 "f0912af0fd6b30d1"
@@ -214,8 +214,8 @@
         "inputType": "2",
         "bacnetId": "0",
         "COVtimeout": "120000",
-        "x": 200,
-        "y": 380,
+        "x": 160,
+        "y": 300,
         "wires": [
             [
                 "5d5206bb588f79aa"
@@ -248,8 +248,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 190,
-        "y": 420,
+        "x": 410,
+        "y": 300,
         "wires": [
             [
                 "f0912af0fd6b30d1"
