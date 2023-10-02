@@ -1,0 +1,538 @@
+[
+    {
+        "id": "1ca58de2ba2655dc",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "07628904833a8266",
+        "type": "group",
+        "z": "1ca58de2ba2655dc",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "3662398c5ad769e1",
+            "6272b006200a6794",
+            "87935afdc6dcdf7c",
+            "ce75da3dba366143",
+            "6769dc54d1b40e0e"
+        ],
+        "x": 354,
+        "y": 359,
+        "w": 452,
+        "h": 202
+    },
+    {
+        "id": "f6d0a2e7c0ae2da5",
+        "type": "group",
+        "z": "1ca58de2ba2655dc",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "fef0dbccca639291",
+            "babbf047ebf77fc9",
+            "9e56170e09795686",
+            "eda0ad19c3df62b7",
+            "4213014f86270577",
+            "9952c7824e70d77f",
+            "4e515bbfb5ae5e86"
+        ],
+        "x": 354,
+        "y": 19,
+        "w": 452,
+        "h": 242
+    },
+    {
+        "id": "96a5f6c078f70774",
+        "type": "modbus-getter",
+        "z": "1ca58de2ba2655dc",
+        "name": "SHT20 ",
+        "showStatusActivities": false,
+        "showErrors": false,
+        "showWarnings": true,
+        "logIOActivities": false,
+        "unitid": "1",
+        "dataType": "InputRegister",
+        "adr": "1",
+        "quantity": "2",
+        "server": "a2eb7307d66544f6",
+        "useIOFile": false,
+        "ioFile": "",
+        "useIOForPayload": false,
+        "emptyMsgOnFail": false,
+        "keepMsgProperties": false,
+        "delayOnStart": false,
+        "startDelayTime": "",
+        "x": 220,
+        "y": 300,
+        "wires": [
+            [
+                "fef0dbccca639291",
+                "babbf047ebf77fc9",
+                "6769dc54d1b40e0e"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "348bee8a07c592cf",
+        "type": "inject",
+        "z": "1ca58de2ba2655dc",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 200,
+        "y": 240,
+        "wires": [
+            [
+                "96a5f6c078f70774"
+            ]
+        ]
+    },
+    {
+        "id": "fef0dbccca639291",
+        "type": "function",
+        "z": "1ca58de2ba2655dc",
+        "g": "f6d0a2e7c0ae2da5",
+        "name": "Temperature",
+        "func": "var newMsg = { payload: msg.payload[0] / 10.0};\nreturn newMsg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 470,
+        "y": 60,
+        "wires": [
+            [
+                "9952c7824e70d77f"
+            ]
+        ]
+    },
+    {
+        "id": "babbf047ebf77fc9",
+        "type": "function",
+        "z": "1ca58de2ba2655dc",
+        "g": "f6d0a2e7c0ae2da5",
+        "name": "Relative Humidity",
+        "func": "var newMsg = { payload: msg.payload[1] / 10.0};\nreturn newMsg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 470,
+        "y": 160,
+        "wires": [
+            [
+                "4e515bbfb5ae5e86"
+            ]
+        ]
+    },
+    {
+        "id": "9e56170e09795686",
+        "type": "template",
+        "z": "1ca58de2ba2655dc",
+        "g": "f6d0a2e7c0ae2da5",
+        "name": "Set SQL Topic",
+        "field": "topic",
+        "fieldType": "msg",
+        "format": "sql",
+        "syntax": "mustache",
+        "template": "INSERT INTO `Modbus_Data` (`TimeStamp`,`Tag`,`TagValue`) VALUES (\"{{Time}}\",\"{{tag}}\",\"{{value}}\")",
+        "output": "str",
+        "x": 700,
+        "y": 140,
+        "wires": [
+            [
+                "155fbdc9756f16c8"
+            ]
+        ],
+        "icon": "font-awesome/fa-database"
+    },
+    {
+        "id": "155fbdc9756f16c8",
+        "type": "sqlite",
+        "z": "1ca58de2ba2655dc",
+        "mydb": "a85d3f1d252316c2",
+        "sqlquery": "msg.topic",
+        "sql": "",
+        "name": "DB",
+        "x": 990,
+        "y": 300,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "eda0ad19c3df62b7",
+        "type": "inject",
+        "z": "1ca58de2ba2655dc",
+        "g": "f6d0a2e7c0ae2da5",
+        "name": "Create Table",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "CREATE TABLE Modbus_Data (ID INTEGER PRIMARY KEY AUTOINCREMENT, TimeStamp DATETIME, Tag TEXT,  TagValue REAL);",
+        "payload": "",
+        "payloadType": "date",
+        "x": 710,
+        "y": 180,
+        "wires": [
+            [
+                "155fbdc9756f16c8"
+            ]
+        ]
+    },
+    {
+        "id": "4213014f86270577",
+        "type": "inject",
+        "z": "1ca58de2ba2655dc",
+        "g": "f6d0a2e7c0ae2da5",
+        "name": "Delete Table",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "DROP TABLE IF EXISTS Modbus_Data;",
+        "payload": "",
+        "payloadType": "date",
+        "x": 710,
+        "y": 220,
+        "wires": [
+            [
+                "155fbdc9756f16c8"
+            ]
+        ]
+    },
+    {
+        "id": "9952c7824e70d77f",
+        "type": "change",
+        "z": "1ca58de2ba2655dc",
+        "g": "f6d0a2e7c0ae2da5",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "value",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "msg",
+                "dc": true
+            },
+            {
+                "t": "set",
+                "p": "tag",
+                "pt": "msg",
+                "to": "Temperature",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "Time",
+                "pt": "msg",
+                "to": "",
+                "tot": "date"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 480,
+        "y": 100,
+        "wires": [
+            [
+                "9e56170e09795686"
+            ]
+        ]
+    },
+    {
+        "id": "4e515bbfb5ae5e86",
+        "type": "change",
+        "z": "1ca58de2ba2655dc",
+        "g": "f6d0a2e7c0ae2da5",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "value",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "msg",
+                "dc": true
+            },
+            {
+                "t": "set",
+                "p": "tag",
+                "pt": "msg",
+                "to": "Humidity",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "Time",
+                "pt": "msg",
+                "to": "",
+                "tot": "date"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 480,
+        "y": 200,
+        "wires": [
+            [
+                "9e56170e09795686"
+            ]
+        ]
+    },
+    {
+        "id": "3662398c5ad769e1",
+        "type": "template",
+        "z": "1ca58de2ba2655dc",
+        "g": "07628904833a8266",
+        "name": "Set SQL Topic",
+        "field": "topic",
+        "fieldType": "msg",
+        "format": "sql",
+        "syntax": "mustache",
+        "template": "INSERT INTO `Modbus_Data_1` (`TimeStamp`,`Temp`,`TempValue`,`Humidity`,`HumidityValue`) VALUES (\"{{Time}}\",\"{{Temp}}\",\"{{TempValue}}\",\"{{Humidity}}\",\"{{HumidityValue}}\")",
+        "output": "str",
+        "x": 700,
+        "y": 440,
+        "wires": [
+            [
+                "155fbdc9756f16c8"
+            ]
+        ],
+        "icon": "font-awesome/fa-database"
+    },
+    {
+        "id": "6272b006200a6794",
+        "type": "inject",
+        "z": "1ca58de2ba2655dc",
+        "g": "07628904833a8266",
+        "name": "Create Table",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "CREATE TABLE Modbus_Data_1 (ID INTEGER PRIMARY KEY AUTOINCREMENT, TimeStamp DATETIME, Temp TEXT,  TempValue REAL, Humidity TEXT,  HumidityValue REAL);",
+        "payload": "",
+        "payloadType": "date",
+        "x": 710,
+        "y": 480,
+        "wires": [
+            [
+                "155fbdc9756f16c8"
+            ]
+        ]
+    },
+    {
+        "id": "87935afdc6dcdf7c",
+        "type": "inject",
+        "z": "1ca58de2ba2655dc",
+        "g": "07628904833a8266",
+        "name": "Delete Table",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "DROP TABLE IF EXISTS Modbus_Data_1;",
+        "payload": "",
+        "payloadType": "date",
+        "x": 710,
+        "y": 520,
+        "wires": [
+            [
+                "155fbdc9756f16c8"
+            ]
+        ]
+    },
+    {
+        "id": "ce75da3dba366143",
+        "type": "change",
+        "z": "1ca58de2ba2655dc",
+        "g": "07628904833a8266",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "Time",
+                "pt": "msg",
+                "to": "",
+                "tot": "date"
+            },
+            {
+                "t": "set",
+                "p": "Temp",
+                "pt": "msg",
+                "to": "Temperature",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "TempValue",
+                "pt": "msg",
+                "to": "payload1",
+                "tot": "msg",
+                "dc": true
+            },
+            {
+                "t": "set",
+                "p": "Humidity",
+                "pt": "msg",
+                "to": "Humidity",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "HumidityValue",
+                "pt": "msg",
+                "to": "payload2",
+                "tot": "msg",
+                "dc": true
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 460,
+        "y": 440,
+        "wires": [
+            [
+                "3662398c5ad769e1"
+            ]
+        ]
+    },
+    {
+        "id": "6769dc54d1b40e0e",
+        "type": "function",
+        "z": "1ca58de2ba2655dc",
+        "g": "07628904833a8266",
+        "name": "",
+        "func": "var value1 = msg.payload[0] / 10.0;\nvar value2 = msg.payload[1] / 10.0;\n\nvar newMsg = { payload1: value1, payload2: value2 };\nreturn newMsg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 480,
+        "y": 400,
+        "wires": [
+            [
+                "ce75da3dba366143"
+            ]
+        ]
+    },
+    {
+        "id": "a2eb7307d66544f6",
+        "type": "modbus-client",
+        "name": "X-CORN 5143D Modbus TCP Server",
+        "clienttype": "tcp",
+        "bufferCommands": true,
+        "stateLogEnabled": false,
+        "queueLogEnabled": false,
+        "failureLogEnabled": true,
+        "tcpHost": "192.168.1.200",
+        "tcpPort": "4196",
+        "tcpType": "DEFAULT",
+        "serialPort": "COM3",
+        "serialType": "RTU",
+        "serialBaudrate": "9600",
+        "serialDatabits": "8",
+        "serialStopbits": "1",
+        "serialParity": "none",
+        "serialConnectionDelay": "1000",
+        "serialAsciiResponseStartDelimiter": "0x3A",
+        "unit_id": "1",
+        "commandDelay": "1",
+        "clientTimeout": "10000",
+        "reconnectOnTimeout": true,
+        "reconnectTimeout": "20000",
+        "parallelUnitIdsAllowed": true,
+        "showWarnings": true,
+        "showLogs": true
+    },
+    {
+        "id": "a85d3f1d252316c2",
+        "type": "sqlitedb",
+        "db": "C:\\Users\\PARROT\\Desktop\\test.db",
+        "mode": "RWC"
+    }
+]
