@@ -89,7 +89,7 @@
         "allowColorForValueInMessage": false,
         "shape": "square",
         "showGlow": false,
-        "name": "DI0",
+        "name": "DI1",
         "x": 570,
         "y": 80,
         "wires": []
@@ -176,7 +176,7 @@
         "allowColorForValueInMessage": false,
         "shape": "square",
         "showGlow": false,
-        "name": "DI1",
+        "name": "DI2",
         "x": 530,
         "y": 140,
         "wires": []
@@ -235,7 +235,7 @@
         "allowColorForValueInMessage": false,
         "shape": "square",
         "showGlow": false,
-        "name": "DI2",
+        "name": "DI3",
         "x": 530,
         "y": 200,
         "wires": []
@@ -1880,6 +1880,7 @@
     {
         "id": "f4a4ac33a555fb3e",
         "type": "modbus-client",
+        "d": true,
         "name": "4DI-4DDAM",
         "clienttype": "serial",
         "bufferCommands": true,
@@ -1897,11 +1898,11 @@
         "serialParity": "none",
         "serialConnectionDelay": "100",
         "serialAsciiResponseStartDelimiter": "0x3A",
-        "unit_id": 1,
-        "commandDelay": 1,
-        "clientTimeout": 1000,
+        "unit_id": "1",
+        "commandDelay": "1",
+        "clientTimeout": "1000",
         "reconnectOnTimeout": true,
-        "reconnectTimeout": 2000,
+        "reconnectTimeout": "2000",
         "parallelUnitIdsAllowed": true,
         "showWarnings": true,
         "showLogs": true
